@@ -1,0 +1,36 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.1-SNAPSHOT'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'war'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+    maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.java-websocket:Java-WebSocket:1.5.3'
+    implementation 'io.contek.invoker:invoker-kraken-api:2.15.0'
+    implementation 'org.modelmapper:modelmapper:3.1.0'
+    implementation 'com.google.code.gson:gson:2.9.0'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // https://mvnrepository.com/artifact/org.springframework/spring-websocket
+    implementation group: 'org.springframework', name: 'spring-websocket', version: '5.3.20'
+    // https://mvnrepository.com/artifact/org.springframework/spring-messaging
+    implementation group: 'org.springframework', name: 'spring-messaging', version: '5.3.20'
+
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
